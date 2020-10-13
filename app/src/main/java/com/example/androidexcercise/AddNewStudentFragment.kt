@@ -176,9 +176,15 @@ class AddNewStudentFragment : Fragment() {
 
     private fun addNewStudent() {
         if (validate()) {
+            var gender = 0
+            gender = if (edt_gender.text.toString() == "Female"){
+                Constants.FEMALE
+            } else {
+                Constants.MALE
+            }
             val student = Student(
                 name = edt_name.text.toString(),
-                gender = edt_gender.text.toString().toInt(),
+                gender = gender,
                 mathScore = edt_math.text.toString().toDouble(),
                 physicsScore = edt_physics.text.toString().toDouble(),
                 chemistryScore = edt_chemistry.text.toString().toDouble(),
